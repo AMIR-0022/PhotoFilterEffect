@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/color_bottom_nav" />
+    <padding android:top="@dimen/_10sdp" android:bottom="@dimen/_10sdp" />
+
+</shape>
