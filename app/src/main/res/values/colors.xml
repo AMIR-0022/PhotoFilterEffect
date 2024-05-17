@@ -9,5 +9,6 @@
     <color name="color_secondary">#83F382</color>
 
     <color name="color_bottom_nav">#B3213167</color>
+    <color name="color_category_shape">#B3000000</color>
 
 </resources>

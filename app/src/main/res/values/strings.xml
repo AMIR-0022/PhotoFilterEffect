@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">PhotoFilterEffect</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Effects Category -->
+    <string name="string_lomo_effects">Lomo Effects</string>
+    <string name="string_bw_effect">B&amp;W Effects</string>
+    <string name="string_artistic_effect">Artistic Effects</string>
+    <string name="string_polaroic_effect">Polaroic Effect</string>
+    <string name="string_mask_effect">Mask Effects</string>
+    <string name="string_overlay_effect">Overlay Effects</string>
+    <string name="string_pixel_effect">Pixel Effects</string>
+
 </resources>

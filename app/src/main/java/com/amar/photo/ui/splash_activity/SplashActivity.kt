@@ -12,7 +12,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.amar.photo.R
 import com.amar.photo.ui.dashboard_activity.DashboardActivity
 
-@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

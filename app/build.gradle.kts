@@ -60,7 +60,6 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-
     // sizes
     implementation(libs.ssp.android)
     implementation(libs.sdp.android)
@@ -77,5 +76,12 @@ dependencies {
     // Life-Cycle
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    // Glide-Image
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
+
+    // Round-Image
+    implementation(libs.roundedimageview)
 
 }

@@ -38,7 +38,7 @@ class DashboardAdapter(var callback: (previousPos: Int, selectivePos: Int, selec
         RecyclerView.ViewHolder(binding.root) {
             fun bind(dashboard: Dashboard, position: Int) {
 
-                if (Constants.selected == position) {
+                if (Constants.selectedNavItem == position) {
                     binding.itemImage.setImageResource(dashboard.activeIcon)
                 } else {
                     binding.itemImage.setImageResource(dashboard.inactiveIcon)
@@ -46,10 +46,10 @@ class DashboardAdapter(var callback: (previousPos: Int, selectivePos: Int, selec
 
                 itemView.apply {
                     setOnClickListener{
-                        val prePos = Constants.selected
-                        Constants.selected = position
+                        val prePos = Constants.selectedNavItem
+                        Constants.selectedNavItem = position
 
-                        callback.invoke(prePos,Constants.selected,dashboard.title, dashboard)
+                        callback.invoke(prePos, Constants.selectedNavItem, dashboard.title, dashboard)
 
                         notifyItemChanged(position)
                         notifyItemChanged(prePos)
