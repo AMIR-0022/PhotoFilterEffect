@@ -7,7 +7,7 @@
 
         <variable
             name="category"
-            type="com.amar.photo.ui.home_fragment.category.Category" />
+            type="com.amar.photo.ui.fragment.home_fragment.category.Category" />
 
     </data>
 
@@ -40,7 +40,7 @@
             android:text="@{category.title}"
             tools:textColor="@color/white"
             android:textColor="@{category.checked ? @color/color_secondary : @color/white}"
-            android:fontFamily="@font/kodchasan_regular"
+            fontFamilyBasedOnChecked="@{category.checked}"
             android:background="@drawable/shape_category_title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

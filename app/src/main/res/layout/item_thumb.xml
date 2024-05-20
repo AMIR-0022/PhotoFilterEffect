@@ -6,7 +6,7 @@
     <data>
         <variable
             name="thumb"
-            type="com.amar.photo.ui.home_fragment.thumb.Thumb" />
+            type="com.amar.photo.ui.fragment.home_fragment.thumb.Thumb" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
