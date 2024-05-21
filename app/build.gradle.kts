@@ -47,6 +47,8 @@ android {
 
 dependencies {
 
+    implementation(project(":cropper"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

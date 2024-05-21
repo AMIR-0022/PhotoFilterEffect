@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.amar.photo.ui.fragment.image_fragment.GalleryImage" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_marginVertical="@dimen/_4sdp"
+        >
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/image"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            imageFromUrl="@{model.imagePath}"-->
+<!--            android:scaleType="fitXY"-->
+<!--            tools:src="@drawable/img_placeholder"-->
+<!--            bind:layout_constraintTop_toTopOf="parent"-->
+<!--            bind:layout_constraintStart_toStartOf="parent"-->
+<!--            bind:layout_constraintEnd_toEndOf="parent"-->
+<!--            bind:layout_constraintBottom_toBottomOf="parent"-->
+<!--            />-->
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_saved_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:riv_corner_radius="@dimen/_6sdp"
+            android:scaleType="fitXY"
+            tools:src="@drawable/img_placeholder"
+            imageFromUrl="@{model.imagePath}"
+            bind:layout_constraintTop_toTopOf="parent"
+            bind:layout_constraintStart_toStartOf="parent"
+            bind:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

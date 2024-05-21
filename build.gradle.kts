@@ -16,11 +16,11 @@ buildscript {
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.7.7")
 
         // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        // in the individual app_module build.gradle files
     }
 }
 
-plugins {
-    alias(libs.plugins.androidApplication) apply false
-    alias(libs.plugins.jetbrainsKotlinAndroid) apply false
-}
+//plugins {
+//    alias(libs.plugins.androidApplication) apply false
+//    alias(libs.plugins.jetbrainsKotlinAndroid) apply false
+//}

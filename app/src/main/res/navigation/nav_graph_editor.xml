@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_editor"
+    app:startDestination="@id/cropFragment">
+
+    <fragment
+        android:id="@+id/cropFragment"
+        android:name="com.amar.photo.ui.fragment.crop_fragment.CropFragment"
+        android:label="CropFragment"
+        tools:layout="@layout/fragment_crop"/>
+    <fragment
+        android:id="@+id/effectFragment"
+        android:name="com.amar.photo.ui.fragment.effect_fragment.EffectFragment"
+        android:label="EffectFragment"
+        tools:layout="@layout/fragment_effect"/>
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.amar.photo.ui.fragment.filter_fragment.FilterFragment"
+        android:label="FilterFragment"
+        tools:layout="@layout/fragment_filter"/>
+
+</navigation>

@@ -2,8 +2,6 @@ package com.amar.photo.constants
 
 object AppConstants {
 
-    // bottom navigation
-    var SELECT_NAV_ITEM: Int = 1
 
     const val FOLDER_NAME = "Photo Effect"
     const val KEY_IMG_PATH = "key_img_path"
@@ -15,5 +13,10 @@ object AppConstants {
     const val PHOTO_EFFECT = "photo_effect"
     const val KEY_PATH = "key_path"
     const val KEY_IS_TEMP = "key_is_temp"
+
+
+    // bottom navigation
+    var SELECT_DASHBOARD_NAV_ITEM: Int = 1
+    var SELECTIVE_EDITOR_NAV_ITEM: Int = 0
 
 }

@@ -23,3 +23,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "PhotoFilterEffect"
 include(":app")
+include(":cropper")

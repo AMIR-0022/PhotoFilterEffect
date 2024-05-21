@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.amar.photo.state.DataState
+import com.amar.photo.data_state.DataState
 import com.amar.photo.ui.fragment.home_fragment.category.Category
 import com.amar.photo.ui.fragment.home_fragment.category.CategoryRP
 import com.amar.photo.ui.fragment.home_fragment.thumb.Thumb

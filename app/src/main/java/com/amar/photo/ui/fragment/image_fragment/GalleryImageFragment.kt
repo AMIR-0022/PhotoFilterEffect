@@ -1,5 +1,6 @@
 package com.amar.photo.ui.fragment.image_fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.amar.photo.R
 import com.amar.photo.databinding.FragmentGalleryImageBinding
+import com.amar.photo.ui.activity.editor_activity.EditorActivity
 import com.amar.photo.ui.activity.gallery_activity.GalleryVM
 import com.amar.photo.utils.displayToast
 import dagger.hilt.android.AndroidEntryPoint
@@ -59,7 +61,7 @@ class GalleryImageFragment : Fragment() {
     private fun populateData() {
         // --->>> set GalleryImage Adapter-Data
         galleryImageAdapter = GalleryImageAdapter {image ->
-
+            startActivity(Intent(requireActivity(), EditorActivity::class.java))
         }
         binding.rvGalleryImages.adapter = galleryImageAdapter
         // --->>> observe gallery image data

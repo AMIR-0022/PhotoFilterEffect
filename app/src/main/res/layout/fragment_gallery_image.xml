@@ -16,7 +16,7 @@
 
         <include
             android:id="@+id/layout_header"
-            layout="@layout/layout_header_gallery"
+            layout="@layout/layout_header"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +26,8 @@
             android:id="@+id/rv_gallery_images"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:spanCount="4"
-            tools:listitem="@layout/list_item_image"
+            app:spanCount="3"
+            tools:listitem="@layout/item_image"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

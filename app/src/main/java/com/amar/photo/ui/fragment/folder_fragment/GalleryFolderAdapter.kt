@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.amar.photo.databinding.ListItemFolderBinding
+import com.amar.photo.databinding.ItemFolderBinding
 
 class GalleryFolderAdapter(private var callback: (folder: GalleryFolder) -> Unit):
     RecyclerView.Adapter<GalleryFolderAdapter.ViewHolder>() {
@@ -16,7 +16,7 @@ class GalleryFolderAdapter(private var callback: (folder: GalleryFolder) -> Unit
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryFolderAdapter.ViewHolder {
         context = parent.context
         val inflater = LayoutInflater.from(context)
-        val binding = ListItemFolderBinding.inflate(inflater, parent, false)
+        val binding = ItemFolderBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -34,7 +34,7 @@ class GalleryFolderAdapter(private var callback: (folder: GalleryFolder) -> Unit
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private val binding: ListItemFolderBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemFolderBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(folder: GalleryFolder) {
             binding.folder = folder
 

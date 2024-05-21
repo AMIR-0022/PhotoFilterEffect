@@ -66,14 +66,11 @@ class GalleryFolderFragment : Fragment() {
                 if (galleryFolderDataState.isLoading) View.VISIBLE else View.GONE
 
             galleryFolderDataState.data?.let { data ->
-                if (data.isEmpty()) {
-                    binding.tvEmptyGallery.visibility = View.VISIBLE
-                } else {
-                    galleryFolderAdapter.setData(data)
-                }
+                galleryFolderAdapter.setData(data)
             } ?: run {
                 galleryFolderDataState.error?.let { error ->
-                    displayToast(error)
+                    binding.tvEmptyGallery.visibility = View.VISIBLE
+                    //displayToast(error)
                 }
             }
         }

@@ -1,11 +1,10 @@
 package com.amar.photo.ui.activity.gallery_activity
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.amar.photo.state.DataState
+import com.amar.photo.data_state.DataState
 import com.amar.photo.ui.fragment.folder_fragment.GalleryFolder
 import com.amar.photo.ui.fragment.image_fragment.GalleryImage
 import dagger.hilt.android.lifecycle.HiltViewModel

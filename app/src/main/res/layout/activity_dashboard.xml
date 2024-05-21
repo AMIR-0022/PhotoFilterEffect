@@ -40,14 +40,14 @@
             android:id="@+id/rv_bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_bottom_nav"
+            android:background="@drawable/shape_bottom_dashboard"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="3"
             tools:itemCount="3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/item_bottom_nav"/>
+            tools:listitem="@layout/item_navigation"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

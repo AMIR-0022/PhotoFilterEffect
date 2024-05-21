@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.amar.photo.databinding.ListItemImageBinding
+import com.amar.photo.databinding.ItemImageBinding
 
 class GalleryImageAdapter(private var callback: (image: GalleryImage)-> Unit):
     RecyclerView.Adapter<GalleryImageAdapter.ViewHolder>(){
@@ -16,7 +16,7 @@ class GalleryImageAdapter(private var callback: (image: GalleryImage)-> Unit):
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryImageAdapter.ViewHolder {
         context = parent.context
         val inflater = LayoutInflater.from(context)
-        val binding = ListItemImageBinding.inflate(inflater, parent, false)
+        val binding = ItemImageBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -34,7 +34,7 @@ class GalleryImageAdapter(private var callback: (image: GalleryImage)-> Unit):
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private val binding: ListItemImageBinding)
+    inner class ViewHolder(private val binding: ItemImageBinding)
         : RecyclerView.ViewHolder(binding.root){
         fun bind(image: GalleryImage) {
             binding.model = image
