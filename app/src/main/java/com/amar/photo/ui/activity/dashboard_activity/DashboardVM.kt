@@ -22,7 +22,7 @@ class DashboardVM: ViewModel() {
 
         list.add(Dashboard("Crop", R.drawable.ic_crop_active, R.drawable.ic_crop_inactive))
         list.add(Dashboard("Effect", R.drawable.ic_effect_active, R.drawable.ic_effect_inactive))
-        list.add(Dashboard("Filter", R.drawable.ic_filter_active, R.drawable.ic_filter_inactive))
+        list.add(Dashboard("Filter", R.drawable.ic_adjust_active, R.drawable.ic_adjust_inactive))
 
         return list
     }

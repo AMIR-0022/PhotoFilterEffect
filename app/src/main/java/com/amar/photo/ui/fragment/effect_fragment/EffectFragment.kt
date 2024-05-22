@@ -35,7 +35,6 @@ class EffectFragment : Fragment() {
     private lateinit var binding: FragmentEffectBinding
 
     private var filterImg = MutableLiveData<Bitmap>()
-    private var isReplace = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,7 +79,6 @@ class EffectFragment : Fragment() {
             if (imgGallery != null && downloadedFrame != null) {
 
                 isTemplateSelect = false
-                isReplace = false
                 setMaskEffect(imgGallery, downloadedFrame, downloadedFrame,
                     PorterDuffEffects.BlendModes[potterDuffMode] //9/10/11
                 )

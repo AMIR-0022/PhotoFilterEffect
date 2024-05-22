@@ -44,17 +44,17 @@ class EditorActivity : AppCompatActivity() {
     private fun populateData(){
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_container_editor) as NavHostFragment
         navController = navHostFragment.navController
-        navigateToFragment(R.id.cropFragment, navController)
+        navigateToFragment(R.id.effectFragment, navController)
         adapter = EditorAdapter() {previousPos, selectivePos, selectiveMenu, item ->
             when (selectivePos) {
                 0 -> {
-                    navigateToFragment(R.id.cropFragment, navController)
-                }
-                1 -> {
                     navigateToFragment(R.id.effectFragment, navController)
                 }
-                2 -> {
+                1 -> {
                     navigateToFragment(R.id.filterFragment, navController)
+                }
+                2 -> {
+                    navigateToFragment(R.id.adjustmentFragment, navController)
                 }
             }
         }
