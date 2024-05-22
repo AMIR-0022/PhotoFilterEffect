@@ -13,15 +13,40 @@
         android:background="@color/color_primary"
         tools:context=".ui.fragment.effect_fragment.EffectFragment">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/effected_image_layout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="effect fragment"
-            android:textColor="@color/white"
+            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintDimensionRatio="5:6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <com.amar.photo.custom_views.MaskableFrameLayout
+                android:id="@+id/maskDestinationLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:porterDuffXFerMode="DST_IN"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="5:6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+                <com.amar.photo.custom_views.MaskableFrameLayout
+                    android:id="@+id/maskBlendLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.amar.photo.custom_views.CustomImageView
+                        android:id="@+id/maskedImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+                </com.amar.photo.custom_views.MaskableFrameLayout>
+            </com.amar.photo.custom_views.MaskableFrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

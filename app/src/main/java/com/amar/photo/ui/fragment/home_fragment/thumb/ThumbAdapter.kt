@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amar.photo.databinding.ItemThumbBinding
 
-class ThumbAdapter(private var callback: (position: Int, thumb: Thumb) -> Unit)
+class ThumbAdapter(private var callback: (thumb: Thumb) -> Unit)
     : RecyclerView.Adapter<ThumbAdapter.ViewHolder>(){
 
     private lateinit var context: Context
@@ -20,7 +20,7 @@ class ThumbAdapter(private var callback: (position: Int, thumb: Thumb) -> Unit)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(thumbList[position], position)
+        holder.bind(thumbList[position])
     }
 
     override fun getItemCount(): Int {
@@ -35,11 +35,11 @@ class ThumbAdapter(private var callback: (position: Int, thumb: Thumb) -> Unit)
 
     inner class ViewHolder(private val binding: ItemThumbBinding)
         : RecyclerView.ViewHolder(binding.root) {
-            fun bind(thumb: Thumb, position: Int) {
+            fun bind(thumb: Thumb) {
                 binding.thumb = thumb
                 itemView.apply {
                     setOnClickListener {
-                        callback.invoke(position, thumb)
+                        callback.invoke(thumb)
                     }
                 }
             }

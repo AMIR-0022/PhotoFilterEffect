@@ -4,7 +4,6 @@ import android.content.Context
 import android.Manifest
 import android.app.Activity
 import com.amar.photo.R
-import com.amar.photo.constants.AppConstants
 import pub.devrel.easypermissions.EasyPermissions
 
 object PermissionsUtils {

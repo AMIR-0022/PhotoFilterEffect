@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.amar.photo.R
-import com.amar.photo.constants.AppConstants.FOLDER_NAME
+import com.amar.photo.utils.AppConstants.FOLDER_NAME
 import com.amar.photo.databinding.FragmentWorkBinding
 import com.amar.photo.ui.activity.gallery_activity.GalleryVM
-import com.amar.photo.utils.displayToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

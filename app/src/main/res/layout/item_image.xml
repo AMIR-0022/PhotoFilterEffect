@@ -34,7 +34,7 @@
             android:id="@+id/item_saved_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            bind:riv_corner_radius="@dimen/_6sdp"
+            bind:riv_corner_radius="@dimen/_8sdp"
             android:scaleType="fitXY"
             tools:src="@drawable/img_placeholder"
             imageFromUrl="@{model.imagePath}"

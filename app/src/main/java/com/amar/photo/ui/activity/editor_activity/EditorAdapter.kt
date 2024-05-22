@@ -5,8 +5,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.amar.photo.constants.AppConstants
 import com.amar.photo.databinding.ItemNavigationBinding
+import com.amar.photo.utils.SELECTIVE_EDITOR_NAV_ITEM
 
 class EditorAdapter(var callback: (previousPos: Int, selectivePos: Int, selectiveMenu: String, item: Editor) -> Unit):
     RecyclerView.Adapter<EditorAdapter.ViewHolder>() {
@@ -38,7 +38,7 @@ class EditorAdapter(var callback: (previousPos: Int, selectivePos: Int, selectiv
         RecyclerView.ViewHolder(binding.root) {
             fun bind(editor: Editor, position: Int) {
 
-                if (AppConstants.SELECTIVE_EDITOR_NAV_ITEM == position) {
+                if (SELECTIVE_EDITOR_NAV_ITEM == position) {
                     binding.itemImage.setImageResource(editor.activeIcon)
                 } else {
                     binding.itemImage.setImageResource(editor.inactiveIcon)
@@ -46,10 +46,10 @@ class EditorAdapter(var callback: (previousPos: Int, selectivePos: Int, selectiv
 
                 itemView.apply {
                     setOnClickListener {
-                        val prePos = AppConstants.SELECTIVE_EDITOR_NAV_ITEM
-                        AppConstants.SELECTIVE_EDITOR_NAV_ITEM = position
+                        val prePos = SELECTIVE_EDITOR_NAV_ITEM
+                        SELECTIVE_EDITOR_NAV_ITEM = position
 
-                        callback.invoke(prePos, AppConstants.SELECTIVE_EDITOR_NAV_ITEM, editor.title, editor)
+                        callback.invoke(prePos, SELECTIVE_EDITOR_NAV_ITEM, editor.title, editor)
 
                         notifyItemChanged(position)
                         notifyItemChanged(prePos)

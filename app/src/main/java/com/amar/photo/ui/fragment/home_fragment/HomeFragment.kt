@@ -14,6 +14,7 @@ import com.amar.photo.ui.activity.gallery_activity.ImageGalleryActivity
 import com.amar.photo.ui.fragment.home_fragment.category.CategoryAdapter
 import com.amar.photo.ui.fragment.home_fragment.thumb.Thumb
 import com.amar.photo.ui.fragment.home_fragment.thumb.ThumbAdapter
+import com.amar.photo.utils.AppUtils
 import com.amar.photo.utils.PermissionsUtils
 import com.amar.photo.utils.displayToast
 import dagger.hilt.android.AndroidEntryPoint
@@ -74,8 +75,8 @@ class HomeFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         }
 
         // --->>> set thumb adapter-data
-        thumbAdapter = ThumbAdapter {position, thumb ->
-            onThumbClick(position, thumb)
+        thumbAdapter = ThumbAdapter { thumb ->
+            onThumbClick(thumb)
         }
         binding.rvThumb.adapter = thumbAdapter
         // --->>> observer thumb data
@@ -95,9 +96,9 @@ class HomeFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         }
     }
 
-    private fun onThumbClick(position: Int, thumb: Thumb){
+    private fun onThumbClick(thumb: Thumb){
         if (PermissionsUtils.hasPermission(requireContext())) {
-            startActivity(Intent(requireActivity(), ImageGalleryActivity::class.java))
+            AppUtils.preDownloadImg(requireActivity(), binding.pbThumbImages, thumb)
         } else {
             PermissionsUtils.requestPermission(requireActivity())
         }

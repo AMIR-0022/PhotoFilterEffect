@@ -25,6 +25,8 @@
             android:id="@+id/rv_gallery_folder"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:clipToPadding="false"
             app:spanCount="3"
             tools:itemCount="5"
             tools:listitem="@layout/item_folder"

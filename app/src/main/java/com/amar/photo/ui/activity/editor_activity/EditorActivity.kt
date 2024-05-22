@@ -1,17 +1,18 @@
 package com.amar.photo.ui.activity.editor_activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.amar.photo.R
-import com.amar.photo.constants.AppConstants
 import com.amar.photo.databinding.ActivityEditorBinding
 import com.amar.photo.utils.AppUtils.navigateToFragment
+import com.amar.photo.utils.SELECTIVE_EDITOR_NAV_ITEM
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EditorActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditorBinding
@@ -63,7 +64,7 @@ class EditorActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        AppConstants.SELECTIVE_EDITOR_NAV_ITEM = 0
+        SELECTIVE_EDITOR_NAV_ITEM = 0
     }
 
 }

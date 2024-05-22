@@ -8,9 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.amar.photo.R
-import com.amar.photo.constants.AppConstants
 import com.amar.photo.databinding.ActivityDashboardBinding
 import com.amar.photo.utils.AppUtils.navigateToFragment
+import com.amar.photo.utils.SELECT_DASHBOARD_NAV_ITEM
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -58,7 +58,7 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     private fun populateView() {
-        when(AppConstants.SELECT_DASHBOARD_NAV_ITEM) {
+        when(SELECT_DASHBOARD_NAV_ITEM) {
             1 -> {
                 navigateToFragment(R.id.homeFragment, navController)
             }

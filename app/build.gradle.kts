@@ -86,6 +86,9 @@ dependencies {
     // Round-Image
     implementation(libs.roundedimageview)
 
+    // coil-image
+    implementation(libs.coil)
+
     // Easy-permission
     implementation(libs.easypermissions)
 
