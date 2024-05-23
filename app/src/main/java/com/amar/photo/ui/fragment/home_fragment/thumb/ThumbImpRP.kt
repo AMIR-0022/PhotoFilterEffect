@@ -118,25 +118,25 @@ class ThumbImpRP @Inject constructor(): ThumbRP {
             Thumb(
                 mask = "file:///android_asset/pixel_effect/pixel_1.webp",
                 cover = "file:///android_asset/pixel_thumbs/1.webp",
-                blend = "9")
+                blend = "10")
         )
         list.add(
             Thumb(
                 mask = "file:///android_asset/pixel_effect/pixel_2.webp",
                 cover = "file:///android_asset/pixel_thumbs/2.webp",
-                blend = "9")
+                blend = "10")
         )
         list.add(
             Thumb(
                 mask = "file:///android_asset/pixel_effect/pixel_3.webp",
                 cover = "file:///android_asset/pixel_thumbs/3.webp",
-                blend = "9")
+                blend = "10")
         )
         list.add(
             Thumb(
                 mask = "file:///android_asset/pixel_effect/pixel_4.webp",
                 cover = "file:///android_asset/pixel_thumbs/4.webp",
-                blend = "9")
+                blend = "10")
         )
         list.add(
             Thumb(

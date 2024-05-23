@@ -1,6 +1,7 @@
 package com.amar.photo.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Matrix
@@ -107,6 +108,38 @@ object AppUtils {
                             // jump to next activity
                             val intent = Intent(activity, ImageGalleryActivity::class.java)
                             activity.startActivity(intent)
+                        }
+                    }
+
+                }
+                override fun onLoadFailed(errorDrawable: Drawable?) {
+                    super.onLoadFailed(errorDrawable)
+                    Log.d(TAG, "onPreLoadFailed: failed to preload image")
+                    progressBar.visibility = View.GONE
+                }
+            })
+    }
+
+    fun preDownloadImg(context: Context, progressBar: ProgressBar, thumb: Thumb, callback: () -> Unit) {
+        progressBar.visibility = View.VISIBLE
+        Log.d(TAG, "onPreLoad: starting to preload image")
+        Glide.with(context)
+            .load(Uri.parse(thumb.mask))
+            .into(object : CustomTarget<Drawable?>() {
+                override fun onLoadCleared(placeholder: Drawable?) {}
+                override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable?>?) {
+                    progressBar.visibility = View.GONE
+
+                    downloadedFrame = resource
+                    potterDuffMode = thumb.blend.toInt()
+
+                    if (isTemplateSelect) {
+
+                    } else {
+                        thumb.mask.let {
+                            thumb.isDownloaded = true
+                            downloadedFrameLink = it
+                            callback.invoke()
                         }
                     }
 

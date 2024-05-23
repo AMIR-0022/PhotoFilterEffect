@@ -6,6 +6,7 @@ object AppConstants {
     const val FOLDER_NAME = "Photo Effect"
     const val KEY_PATH = "key_path"
     const val SELECT_IMAGE_FROM_GALLERY_CODE = 201
+    const val SELECTIVE_EFFECT_CATEGORY = 0
     const val KEY_IMG_PATH = "key_img_path"
     const val KEY_IS_REPLACE = "Key_for_replace"
     const val KEY_FOR_ADD_PHOTO = "key_for_add_photo"

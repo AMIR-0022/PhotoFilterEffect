@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import com.amar.photo.R
 import coil.imageLoader
@@ -19,7 +20,11 @@ import com.amar.photo.custom_views.MaskableFrameLayout
 import com.amar.photo.databinding.FragmentEffectBinding
 import com.amar.photo.porter_duff.PorterDuffEffects
 import com.amar.photo.touch_listener.MultiTouchListener
+import com.amar.photo.ui.fragment.home_fragment.HomeVM
+import com.amar.photo.ui.fragment.home_fragment.thumb.ThumbAdapter
 import com.amar.photo.utils.AppConstants.TAG
+import com.amar.photo.utils.AppUtils
+import com.amar.photo.utils.displayToast
 import com.amar.photo.utils.downloadedFrame
 import com.amar.photo.utils.imgGallery
 import com.amar.photo.utils.isTemplateSelect
@@ -35,6 +40,9 @@ class EffectFragment : Fragment() {
     private lateinit var binding: FragmentEffectBinding
 
     private var filterImg = MutableLiveData<Bitmap>()
+
+    private val viewModel: HomeVM by viewModels()
+    private lateinit var effectAdapter: EffectAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,6 +70,7 @@ class EffectFragment : Fragment() {
 
     private fun init() {
         setEffect()
+        populateData()
         setClickListeners()
     }
 
@@ -72,6 +81,34 @@ class EffectFragment : Fragment() {
                 requireContext().applicationContext, binding.maskedImageView
             )
         )
+    }
+
+    private fun populateData() {
+        // --->>> set thumb-effect adapter-data
+        effectAdapter = EffectAdapter { effect ->
+            CoroutineScope(Dispatchers.Main).launch {
+                AppUtils.preDownloadImg(requireContext(), binding.pbEffectImages, effect) {
+                    setEffect()
+                }
+
+            }
+        }
+        binding.rvEffect.adapter = effectAdapter
+        // --->>> observe thumb-effect data
+        viewModel.thumbImageUiState.observe(viewLifecycleOwner) {
+            val dataState = it ?: return@observe
+
+            binding.pbEffectImages.visibility =
+                if(dataState.isLoading) View.VISIBLE else View.GONE
+
+            dataState.data?.let { data ->
+                effectAdapter.setData(data)
+            } ?: run {
+                dataState.error?.let { error ->
+                    displayToast(error)
+                }
+            }
+        }
     }
 
     private fun setEffect() {

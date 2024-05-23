@@ -1,21 +1,22 @@
-package com.amar.photo.ui.fragment.home_fragment.thumb
+package com.amar.photo.ui.fragment.effect_fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.amar.photo.databinding.ItemThumbBinding
+import com.amar.photo.databinding.ItemEffectBinding
+import com.amar.photo.ui.fragment.home_fragment.thumb.Thumb
 
-class ThumbAdapter(private var callback: (thumb: Thumb) -> Unit)
-    : RecyclerView.Adapter<ThumbAdapter.ViewHolder>(){
+class EffectAdapter(private var callback: (thumb: Thumb) -> Unit)
+    : RecyclerView.Adapter<EffectAdapter.ViewHolder>(){
 
     private lateinit var context: Context
     private var thumbList: ArrayList<Thumb> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
-        val binding = ItemThumbBinding.inflate(LayoutInflater.from(context), parent, false)
+        val binding = ItemEffectBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -33,10 +34,10 @@ class ThumbAdapter(private var callback: (thumb: Thumb) -> Unit)
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private val binding: ItemThumbBinding)
+    inner class ViewHolder(private val binding: ItemEffectBinding)
         : RecyclerView.ViewHolder(binding.root) {
             fun bind(thumb: Thumb) {
-                binding.thumb = thumb
+                binding.effect = thumb
                 itemView.apply {
                     setOnClickListener {
                         callback.invoke(thumb)

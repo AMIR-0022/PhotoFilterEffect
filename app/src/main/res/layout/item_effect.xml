@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="model"
-            type="com.amar.photo.ui.fragment.image_fragment.GalleryImage" />
+            name="effect"
+            type="com.amar.photo.ui.fragment.home_fragment.thumb.Thumb" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +24,7 @@
             bind:riv_corner_radius="@dimen/_6sdp"
             android:scaleType="fitXY"
             tools:src="@drawable/img_placeholder"
-            imageFromUrl="@{model.imagePath}"
+            imageFromUrl="@{effect.cover}"
             bind:layout_constraintTop_toTopOf="parent"
             bind:layout_constraintStart_toStartOf="parent"
             bind:layout_constraintEnd_toEndOf="parent"
