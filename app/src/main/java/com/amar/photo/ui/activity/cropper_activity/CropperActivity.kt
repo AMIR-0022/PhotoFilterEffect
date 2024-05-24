@@ -5,20 +5,16 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.amar.photo.R
 import com.amar.photo.databinding.ActivityCropperBinding
 import com.amar.photo.ui.activity.editor_activity.EditorActivity
-import com.amar.photo.utils.AppConstants
+import com.amar.photo.utils.Constants
 import com.amar.photo.utils.AppUtils
 import com.amar.photo.utils.imgGallery
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -30,7 +26,7 @@ class CropperActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cropper)
 
-        val path = intent.getStringExtra(AppConstants.KEY_PATH)
+        val path = intent.getStringExtra(Constants.KEY_PATH)
 
         binding.ivCropper.setAspectRatio(5, 6)
         binding.ivCropper.setImageUriAsync(
@@ -43,7 +39,7 @@ class CropperActivity : AppCompatActivity() {
 
         binding.ivCropSave.setOnClickListener {
             if (binding.ivCropper.croppedImage != null) {
-                Log.d(AppConstants.TAG, "onCropSelectiveImage: Cropping the Image")
+                Log.d(Constants.TAG, "onCropSelectiveImage: Cropping the Image")
                 binding.pbCroppingImage.visibility = View.VISIBLE
                 CoroutineScope(Dispatchers.Main).launch {
                     imgGallery = AppUtils.resizeBitmap(binding.ivCropper.croppedImage, 1000, 1000)

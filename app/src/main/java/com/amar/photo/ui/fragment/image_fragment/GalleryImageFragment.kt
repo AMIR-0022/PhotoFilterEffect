@@ -12,10 +12,8 @@ import androidx.navigation.fragment.navArgs
 import com.amar.photo.R
 import com.amar.photo.databinding.FragmentGalleryImageBinding
 import com.amar.photo.ui.activity.cropper_activity.CropperActivity
-import com.amar.photo.ui.activity.editor_activity.EditorActivity
 import com.amar.photo.ui.activity.gallery_activity.GalleryVM
-import com.amar.photo.utils.AppConstants
-import com.amar.photo.utils.selectiveImagePath
+import com.amar.photo.utils.Constants
 import com.amar.photo.utils.displayToast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -66,7 +64,7 @@ class GalleryImageFragment : Fragment() {
             image.imagePath?.let { path ->
                 //selectiveImagePath = path
                 val intent = Intent(requireActivity(), CropperActivity::class.java)
-                intent.putExtra(AppConstants.KEY_PATH, path)
+                intent.putExtra(Constants.KEY_PATH, path)
                 startActivity(intent)
             }
         }

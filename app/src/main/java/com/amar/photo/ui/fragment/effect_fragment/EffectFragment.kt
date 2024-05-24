@@ -21,8 +21,7 @@ import com.amar.photo.databinding.FragmentEffectBinding
 import com.amar.photo.porter_duff.PorterDuffEffects
 import com.amar.photo.touch_listener.MultiTouchListener
 import com.amar.photo.ui.fragment.home_fragment.HomeVM
-import com.amar.photo.ui.fragment.home_fragment.thumb.ThumbAdapter
-import com.amar.photo.utils.AppConstants.TAG
+import com.amar.photo.utils.Constants.TAG
 import com.amar.photo.utils.AppUtils
 import com.amar.photo.utils.displayToast
 import com.amar.photo.utils.downloadedFrame

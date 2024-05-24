@@ -1,5 +1,6 @@
 package com.amar.photo.ui.fragment.work_fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.amar.photo.R
-import com.amar.photo.utils.AppConstants.FOLDER_NAME
+import com.amar.photo.utils.Constants.FOLDER_NAME
 import com.amar.photo.databinding.FragmentWorkBinding
 import com.amar.photo.ui.activity.gallery_activity.GalleryVM
+import com.amar.photo.ui.activity.photo_activity.PhotoActivity
+import com.amar.photo.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,7 +54,9 @@ class WorkFragment : Fragment() {
     private fun populateData() {
         // --->>> set Work-Image adapter data
         workAdapter = WorkAdapter { work ->
-
+            val intent = Intent(requireActivity(), PhotoActivity::class.java)
+            intent.putExtra(Constants.KEY_IMG_PATH, work.imagePath)
+            startActivity(intent)
         }
         binding.rvWorkImages.adapter = workAdapter
         // observed worked image data

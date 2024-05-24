@@ -19,7 +19,7 @@ object PermissionsUtils {
         EasyPermissions.requestPermissions(
             activity,
             activity.resources.getString(R.string.string_permission_request),
-            AppConstants.SELECT_IMAGE_FROM_GALLERY_CODE,
+            Constants.SELECT_IMAGE_FROM_GALLERY_CODE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_EXTERNAL_STORAGE
         )

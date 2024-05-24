@@ -26,6 +26,13 @@ fun RoundedImageView.imageFromUrl(url: String) {
         .into(this)
 }
 
+@BindingAdapter("imageFromDrawable")
+fun AppCompatImageView.imageFromDrawable(image: Int) {
+    Glide.with(this.context)
+        .load(image)
+        .into(this)
+}
+
 @BindingAdapter("imageFromUrl")
 fun AppCompatImageView.imageFromUrl(url: String) {
     Glide.with(this.context)

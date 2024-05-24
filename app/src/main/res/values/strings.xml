@@ -9,12 +9,10 @@
     <string name="string_mask_effect">Mask Effects</string>
     <string name="string_overlay_effect">Overlay Effects</string>
     <string name="string_pixel_effect">Pixel Effects</string>
+    <string name="string_share_to">Share to</string>
 
     <string name="string_no_work">No work available</string>
     <string name="string_no_image_found">No Image Found</string>
 
     <string name="string_permission_request">Please allow all permissions in order to use the app.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>

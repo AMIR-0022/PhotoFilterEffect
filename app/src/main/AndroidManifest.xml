@@ -17,6 +17,12 @@
         android:theme="@style/Theme.PhotoFilterEffect"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.share_activity.ShareActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.photo_activity.PhotoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.cropper_activity.CropperActivity"
             android:exported="false" />
         <activity
