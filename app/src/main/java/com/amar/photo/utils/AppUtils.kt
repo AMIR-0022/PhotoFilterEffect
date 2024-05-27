@@ -46,7 +46,7 @@ object AppUtils {
 
     fun resizeBitmap(input: Bitmap, destWidth: Int, destHeight: Int, rotation: Int = 0): Bitmap? {
         var bmp: Bitmap? = null
-        Log.d(TAG, "ResizeBitmap: Starting", )
+        Log.d(TAG, "ResizeBitmap: Starting")
         val job = CoroutineScope(Dispatchers.IO).async {
             var dstWidth = destWidth
             var dstHeight = destHeight
@@ -91,12 +91,12 @@ object AppUtils {
 
             job.join()
         }
-        Log.d(TAG, "ResizeBitmap: Ending", )
+        Log.d(TAG, "ResizeBitmap: Ending")
         return bmp
     }
 
 
-    fun preDownloadImg(activity: Activity, progressBar: ProgressBar, thumb: Thumb,) {
+    fun preDownloadImg(activity: Activity, progressBar: ProgressBar, thumb: Thumb) {
         progressBar.visibility = View.VISIBLE
         Log.d(TAG, "onPreLoad: starting to preload image")
         Glide.with(activity.baseContext)

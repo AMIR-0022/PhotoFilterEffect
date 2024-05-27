@@ -3,6 +3,8 @@ package com.amar.photo.app_module
 import android.content.Context
 import com.amar.photo.ui.activity.gallery_activity.GalleryImpRP
 import com.amar.photo.ui.activity.gallery_activity.GalleryRP
+import com.amar.photo.ui.fragment.filter_fragment.FilterImpRP
+import com.amar.photo.ui.fragment.filter_fragment.FilterRP
 import com.amar.photo.ui.fragment.home_fragment.category.CategoryImpRP
 import com.amar.photo.ui.fragment.home_fragment.category.CategoryRP
 import com.amar.photo.ui.fragment.home_fragment.thumb.ThumbImpRP
@@ -31,6 +33,11 @@ class AppModule {
     @Provides
     fun providesGalleryRepository(@ApplicationContext context: Context) : GalleryRP {
         return GalleryImpRP(context)
+    }
+
+    @Provides
+    fun providesFilterRepository(@ApplicationContext context: Context): FilterRP {
+        return FilterImpRP(context)
     }
 
 }

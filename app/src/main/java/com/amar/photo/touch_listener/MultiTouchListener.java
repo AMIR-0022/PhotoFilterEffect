@@ -1,10 +1,14 @@
 package com.amar.photo.touch_listener;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import com.amar.photo.utils.TransformUtil;
+
+import java.io.Serializable;
 
 
 public class MultiTouchListener implements OnTouchListener {
@@ -160,6 +164,8 @@ public class MultiTouchListener implements OnTouchListener {
 
             case MotionEvent.ACTION_UP:
                 mActivePointerId = INVALID_POINTER_ID;
+                updateTransformUtil(view);
+                Log.d("OnTouch", "onTouch: OnTouchHandled");
                 break;
 
             case MotionEvent.ACTION_POINTER_UP: {
@@ -213,7 +219,7 @@ public class MultiTouchListener implements OnTouchListener {
         }
     }
 
-    private class TransformInfo {
+    public class TransformInfo implements Serializable {
 
         public float deltaX;
         public float deltaY;
@@ -223,6 +229,7 @@ public class MultiTouchListener implements OnTouchListener {
         public float pivotY;
         public float minimumScale;
         public float maximumScale;
+
     }
 
     private final class GestureListener extends GestureDetector.SimpleOnGestureListener {
@@ -235,4 +242,36 @@ public class MultiTouchListener implements OnTouchListener {
             return super.onDoubleTap(e);
         }
     }
+
+    // Add method to update TransformUtil
+    private void updateTransformUtil(View view) {
+        TransformInfo info = saveTransformInfo(view);
+        TransformUtil.INSTANCE.saveTransformInfo(info);
+    }
+
+    private TransformInfo saveTransformInfo(View view) {
+        TransformInfo info = new TransformInfo();
+        info.deltaX = view.getTranslationX();
+        info.deltaY = view.getTranslationY();
+        info.deltaScale = view.getScaleX();
+        info.deltaAngle = view.getRotation();
+        info.pivotX = view.getPivotX();
+        info.pivotY = view.getPivotY();
+        info.minimumScale = minimumScale;
+        info.maximumScale = maximumScale;
+        return info;
+    }
+
+    public void setTransformInfo(View view, TransformInfo info) {
+        view.setTranslationX(info.deltaX);
+        view.setTranslationY(info.deltaY);
+        view.setScaleX(info.deltaScale);
+        view.setScaleY(info.deltaScale);
+        view.setRotation(info.deltaAngle);
+        view.setPivotX(info.pivotX);
+        view.setPivotY(info.pivotY);
+    }
+
+
+
 }

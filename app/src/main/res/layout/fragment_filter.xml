@@ -13,15 +13,69 @@
         android:background="@color/color_primary"
         tools:context=".ui.fragment.filter_fragment.FilterFragment">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/effected_image_layout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="filter fragment"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/white"
+            app:layout_constraintDimensionRatio="5:6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rv_filter"
+            >
+            <com.amar.photo.custom_views.MaskableFrameLayout
+                android:id="@+id/maskDestinationLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:porterDuffXFerMode="DST_IN"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="5:6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+                <com.amar.photo.custom_views.MaskableFrameLayout
+                    android:id="@+id/maskBlendLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.amar.photo.custom_views.CustomImageView
+                        android:id="@+id/maskedImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+                </com.amar.photo.custom_views.MaskableFrameLayout>
+            </com.amar.photo.custom_views.MaskableFrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/_6sdp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/item_effect"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/pb_filter_images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateOnly="true"
+            android:indeterminateTint="@color/color_secondary"
+            style="@style/Widget.Material3.CircularProgressIndicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

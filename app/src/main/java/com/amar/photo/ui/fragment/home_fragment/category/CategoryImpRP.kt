@@ -10,7 +10,7 @@ class CategoryImpRP @Inject constructor(): CategoryRP {
         list.add(
             Category(
                 id = 0,
-                title = "Lomo Effects",
+                title = "Mask Effects",
                 image = "file:///android_asset/mask_thumbs/1.webp",
                 isChecked = true
             )
@@ -18,14 +18,14 @@ class CategoryImpRP @Inject constructor(): CategoryRP {
         list.add(
             Category(
                 id = 1,
-                title = "B&W Effects",
+                title = "Overlay Effects",
                 image = "file:///android_asset/mask_thumbs/2.webp",
             )
         )
         list.add(
             Category(
                 id = 2,
-                title = "Polaroic Effect",
+                title = "Pixel Effect",
                 image = "file:///android_asset/mask_thumbs/3.webp",
             )
         )

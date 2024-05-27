@@ -2,6 +2,7 @@ package com.amar.photo.utils
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import com.amar.photo.touch_listener.MultiTouchListener
 
 
 var selectiveImagePath: String? = null

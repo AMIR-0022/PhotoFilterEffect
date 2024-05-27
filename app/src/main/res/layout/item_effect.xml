@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="effect"
-            type="com.amar.photo.ui.fragment.home_fragment.thumb.Thumb" />
+<!--        <variable-->
+<!--            name="effect"-->
+<!--            type="com.amar.photo.ui.fragment.home_fragment.thumb.Thumb" />-->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,13 +22,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             bind:riv_corner_radius="@dimen/_6sdp"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             tools:src="@drawable/img_placeholder"
-            imageFromUrl="@{effect.cover}"
             bind:layout_constraintTop_toTopOf="parent"
             bind:layout_constraintStart_toStartOf="parent"
             bind:layout_constraintEnd_toEndOf="parent"
             />
+<!--            imageFromUrl="@{effect.cover}"-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

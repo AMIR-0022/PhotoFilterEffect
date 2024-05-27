@@ -23,6 +23,7 @@ import com.amar.photo.touch_listener.MultiTouchListener
 import com.amar.photo.ui.fragment.home_fragment.HomeVM
 import com.amar.photo.utils.Constants.TAG
 import com.amar.photo.utils.AppUtils
+import com.amar.photo.utils.TransformUtil
 import com.amar.photo.utils.displayToast
 import com.amar.photo.utils.downloadedFrame
 import com.amar.photo.utils.imgGallery
@@ -38,10 +39,11 @@ class EffectFragment : Fragment() {
 
     private lateinit var binding: FragmentEffectBinding
 
-    private var filterImg = MutableLiveData<Bitmap>()
+    private lateinit var multiTouchListener: MultiTouchListener
 
     private val viewModel: HomeVM by viewModels()
     private lateinit var effectAdapter: EffectAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,6 +53,8 @@ class EffectFragment : Fragment() {
         val myView = inflater.inflate(R.layout.fragment_effect, container, false)
         binding = FragmentEffectBinding.bind(myView)
 
+        multiTouchListener = MultiTouchListener(requireContext(), binding.maskedImageView)
+
         return binding.root
     }
 
@@ -59,11 +63,11 @@ class EffectFragment : Fragment() {
 
         init()
 
-        filterImg.observe(viewLifecycleOwner) {
-            CoroutineScope(Dispatchers.Main).launch {
-                binding.maskedImageView.setImageBitmap(it)
-            }
-        }
+//        filterImg.observe(viewLifecycleOwner) {
+//            CoroutineScope(Dispatchers.Main).launch {
+//                binding.maskedImageView.setImageBitmap(it)
+//            }
+//        }
 
     }
 
@@ -75,14 +79,20 @@ class EffectFragment : Fragment() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun setClickListeners() {
-        binding.maskedImageView.setOnTouchListener(
-            MultiTouchListener(
-                requireContext().applicationContext, binding.maskedImageView
-            )
-        )
+        binding.maskedImageView.setOnTouchListener(multiTouchListener)
+//        binding.maskedImageView.setOnTouchListener(
+//            MultiTouchListener(
+//                requireContext().applicationContext, binding.maskedImageView
+//            )
+//        )
     }
 
     private fun populateData() {
+        // --->>> set transform-info to image
+        TransformUtil.getTransformInfo()?.let { info ->
+            multiTouchListener.setTransformInfo(binding.maskedImageView, info)
+        }
+
         // --->>> set thumb-effect adapter-data
         effectAdapter = EffectAdapter { effect ->
             CoroutineScope(Dispatchers.Main).launch {
@@ -116,7 +126,7 @@ class EffectFragment : Fragment() {
 
                 isTemplateSelect = false
                 setMaskEffect(imgGallery, downloadedFrame, downloadedFrame,
-                    PorterDuffEffects.BlendModes[potterDuffMode] //9/10/11
+                    PorterDuffEffects.BlendModes[potterDuffMode]    // 9 - 10 - 11
                 )
             } else {
                 Toast.makeText(requireContext(), "Image Not Found", Toast.LENGTH_SHORT).show()

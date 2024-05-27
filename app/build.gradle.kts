@@ -89,6 +89,9 @@ dependencies {
     // coil-image
     implementation(libs.coil)
 
+    // GPU-Image
+    implementation(libs.gpuimage)
+
     // Easy-permission
     implementation(libs.easypermissions)
 

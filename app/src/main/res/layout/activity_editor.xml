@@ -18,7 +18,7 @@
             android:id="@+id/custom_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:topImageSrc="@drawable/ic_edit"
+            app:topImageSrc="@drawable/ic_edit_image"
             app:backImageSrc="@drawable/ic_back"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
