@@ -13,7 +13,7 @@ class ShareVM @Inject constructor(): ViewModel() {
         list.add(Share("Facebook", R.drawable.img_facebook))
         list.add(Share("Twitter", R.drawable.img_twitter))
         list.add(Share("Instagram", R.drawable.img_instagram))
-        list.add(Share("WhatsApp", R.drawable.img_youtube))
+        list.add(Share("WhatsApp", R.drawable.img_whatsapp))
         return list
     }
 

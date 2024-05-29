@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amar.photo.databinding.ItemEffectBinding
-import com.amar.photo.ui.fragment.home_fragment.thumb.Thumb
 
 class FilterAdapter(private var callback: (filter: Filter) -> Unit)
     : RecyclerView.Adapter<FilterAdapter.ViewHolder>(){
@@ -37,7 +36,7 @@ class FilterAdapter(private var callback: (filter: Filter) -> Unit)
     inner class ViewHolder(private val binding: ItemEffectBinding)
         : RecyclerView.ViewHolder(binding.root) {
             fun bind(filter: Filter) {
-                binding.itemSavedImage.setImageBitmap(filter.filterPrev)
+                binding.itemSavedImage.setImageBitmap(filter.filteredImage)
                 itemView.apply {
                     setOnClickListener {
                         callback.invoke(filter)

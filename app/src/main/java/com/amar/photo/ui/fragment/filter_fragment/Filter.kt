@@ -7,5 +7,5 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter
 data class Filter(
     val name: String,
     val filter: GPUImageFilter,
-    val filterPrev: Bitmap,
+    val filteredImage: Bitmap,
 )

@@ -13,15 +13,105 @@
         android:background="@color/color_primary"
         tools:context=".ui.fragment.adjust_fragment.AdjustmentFragment">
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/effected_image_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintDimensionRatio="5:6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/seek_bar"
+            >
+            <com.amar.photo.custom_views.MaskableFrameLayout
+                android:id="@+id/maskDestinationLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:porterDuffXFerMode="DST_IN"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="5:6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+                <com.amar.photo.custom_views.MaskableFrameLayout
+                    android:id="@+id/maskBlendLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.amar.photo.custom_views.CustomImageView
+                        android:id="@+id/maskedImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+                </com.amar.photo.custom_views.MaskableFrameLayout>
+            </com.amar.photo.custom_views.MaskableFrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_begin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="adjustment fragment"
+            android:text="0"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/seek_bar"
+            app:layout_constraintEnd_toStartOf="@id/seek_bar"
+            app:layout_constraintTop_toTopOf="@id/seek_bar" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent="0.75"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:min="0"
+            android:progressTint="@color/color_secondary"
+            android:thumbTint="@color/color_secondary"
+            android:progressBackgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@id/rv_adjustment"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/seek_bar"
+            app:layout_constraintStart_toEndOf="@id/seek_bar"
+            app:layout_constraintTop_toTopOf="@id/seek_bar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_adjustment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_6sdp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/item_adjustment"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/pb_adjustment_images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateOnly="true"
+            android:indeterminateTint="@color/color_secondary"
+            style="@style/Widget.Material3.CircularProgressIndicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

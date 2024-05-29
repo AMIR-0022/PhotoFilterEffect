@@ -40,11 +40,11 @@ class FilterFragment : Fragment() {
 
     private lateinit var binding: FragmentFilterBinding
 
-    private lateinit var multiTouchListener: MultiTouchListener
-
     private val viewModel: FilterVM by viewModels()
 
     private lateinit var filterAdapter: FilterAdapter
+
+    private lateinit var multiTouchListener: MultiTouchListener
 
     private lateinit var gpuImage: GPUImage
     private lateinit var originalBitmap: Bitmap
@@ -104,6 +104,7 @@ class FilterFragment : Fragment() {
 
         // --->>> set filter adapter
         filterAdapter = FilterAdapter {
+            Toast.makeText(requireContext(), "${it.name}", Toast.LENGTH_SHORT).show()
             with(it) {
                 with(gpuImage) {
                     setFilter(filter)

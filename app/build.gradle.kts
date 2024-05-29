@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.amar.photo"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -79,6 +79,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
+    // Easy-permission
+    implementation(libs.easypermissions)
+
     // Glide-Image
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
@@ -90,9 +93,14 @@ dependencies {
     implementation(libs.coil)
 
     // GPU-Image
-    implementation(libs.gpuimage)
+//    implementation(libs.gpuimage)
+//    implementation("org.wysaid:gpuimage-plus:2.6.3-min")
+    implementation(libs.gpuimage) {
+        exclude(group = "com.android.support")
+    }
+    implementation("org.wysaid:gpuimage-plus:2.6.3-min") {
+        exclude(group = "com.android.support")
+    }
 
-    // Easy-permission
-    implementation(libs.easypermissions)
 
 }
